@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="title" content="퍼블리싱">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="No-Cache" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<title>UI GUIDE & IA</title>
+
+<!-- CSS :: CSS 파일 수정하지 마세요. -->
+<link type="text/css" rel="stylesheet" href="../../static/css/import.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../static/css/@guide.css" media="all" /><!-- @ 가이드 문서만 사용 -->
+
+<!-- JS :: JS 파일 수정하지 마세요. -->
+<script type="text/javascript" src="./js/@guide.js" defer></script><!-- @ 가이드 문서만 사용 -->
+<script type="text/javascript" src="./js/ui.common.js" defer></script><!-- @ 퍼블 화면확인용 js -->
+</head>
+<body>
+	<div class="cont-guide">
+
+		<h2 class="tit-guide">SELECTBOX</h2>
+
+		<div class="desc-guide">
+			btn-select-open 클릭 시 ui-selectbox에 class active추가, bodyScroll.open() 적용<br />
+			취소버튼 클릭시 ui-selectbox에 class active 삭제, bodyScroll.close() 적용<br />
+			<b>select-list의 옵션 선택시 btn-layer-open의 class에 has-value 추가</b>
+
+			<p class="tit color-red">접근성</p>
+			select-wrap의 id 값과 btn-select-open의 aria-controls값이 같아야함<br />
+			select-title의 id 값과 select-wrap, select-list의 aria-labelledby 값이 같아야함
+		</div>
+
+		<h3 class="tit-guide">POPUP 페이지 내에서 사용</h3>
+		<h4 class="mb20">바닥 페이지에서 사용되는 selectbox 는 bottom-sheet의 TYPE-select 참고해주세요.</h4>
+		<div class="source-view">
+			<!-- ui-selectbox -->
+			<div class="ui-selectbox">
+				<button type="button" class="btn-select-open" role="button" aria-controls="select01-dialog">선택해주세요.</button>
+
+				<!-- select-wrap -->
+				<div class="select-wrap" role="dialog" aria-labelledby="select01-label" aria-modal="true" id="select01-dialog">
+					<p class="select-title" id="select01-label">타이틀 타이틀</p>
+
+					<ul class="select-list" role="listbox" aria-labelledby="select01-label">
+						<li><button type="button">옵션111111111111</button></li>
+						<!-- <li><button type="button active">옵션111111111111</button></li> --> <!-- 활성 -->
+						<li><button type="button">옵션222</button></li>
+						<li><button type="button">옵션33333</button></li>
+						<li><button type="button">옵션44444444444</button></li>
+						<li><button type="button">옵션5</button></li>
+						<li><button type="button">옵션6</button></li>
+						<li><button type="button">옵션7</button></li>
+					</ul>
+
+					<div class="btn-wrap">
+						<button type="button" class="ui-btn size-s" onClick="selectClose(this)">취소</button>
+						<button type="button" class="ui-btn blue">확인</button>
+					</div>
+				</div>
+				<!-- //select-wrap -->
+
+				<div class="bg-overlay"></div>
+			</div>
+			<!-- //ui-selectbox -->
+		</div>
+
+
+	</div>
+</body>
+</html>

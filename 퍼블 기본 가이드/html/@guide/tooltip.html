@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="title" content="퍼블리싱">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="No-Cache" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<title>UI GUIDE & IA</title>
+
+<!-- CSS :: CSS 파일 수정하지 마세요. -->
+<link type="text/css" rel="stylesheet" href="../../static/css/import.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../static/css/@guide.css" media="all" /><!-- @ 가이드 문서만 사용 -->
+
+<!-- JS :: JS 파일 수정하지 마세요. -->
+<script type="text/javascript" src="./js/@guide.js" defer></script><!-- @ 가이드 문서만 사용 -->
+<script type="text/javascript" src="./js/ui.common.js" defer></script><!-- @ 퍼블 화면확인용 js -->
+</head>
+<body>
+	<div class="cont-guide">
+
+		<h2 class="tit-guide">TOOLTIP</h2>
+
+		<div class="desc-guide">
+			btn-tooltip-open 클릭 시 ui-tooltip의 class에 active 추가<br />
+			btn-tooltip-open 한번 더 클릭 시 ui-tooltip의 class에 active 삭제 및 닫힘<br />
+			툴팁 제외한 body 클릭시 툴팁 닫힘 (ui-tooltip의 class에서 active 삭제)<br /><br />
+			<p class="tit color-red">접근성</p>
+			btn-tooltip-open의 aria-controls값이 tooltip-wrap의 id 값과 같아야함<br />
+			btn-tooltip-open의 aria-label값이 tooltip-tit의 id 값과 같아야함<br />
+			btn-tooltip-open의 aria-describedby값이 tooltip-contents의 id 값과 같아야함<br />
+		</div>
+
+		<h3 class="tit-guide">기본</h3>
+		<div class="source-view">
+			<!-- ui-tooltip -->
+			<div class="ui-tooltip">
+				<button type="button" class="btn-tooltip-open" role="button" aria-label="tooltip01-label" aria-describedby="tooltip01-desc" aria-controls="tooltip01">가나다라마바사</button><!-- 타이틀 없을 경우 aria-label 삭제 -->
+				<div class="tooltip-wrap" role="tooltip" id="tooltip01">
+					<p class="tooltip-tit" id="tooltip01-label">툴팁타이틀툴팁타이틀툴팁타이틀</p> <!-- 타이틀 없을 경우 해당 영역 삭제 -->
+					<div class="tooltip-contents" id="tooltip01-desc">
+						툴팁 컨텐츠 툴팁 컨텐츠 툴팁 컨텐츠 툴팁 컨텐츠 툴팁 컨텐츠 툴팁 컨텐츠 툴팁 컨텐츠 툴팁 컨텐츠 
+					</div>
+				</div>
+			</div>
+			<!-- //ui-tooltip -->
+		</div>
+
+		<h3 class="tit-guide">텍스트 없음</h3>
+		<div class="source-view">
+			<!-- ui-tooltip -->
+			<div class="ui-tooltip">
+				<button type="button" class="btn-tooltip-open hide" role="button" aria-label="tooltip02-label" aria-describedby="tooltip02-desc" aria-controls="tooltip02">가나다라마바사</button><!-- 타이틀 없을 경우 aria-label 삭제 -->
+				<div class="tooltip-wrap" role="tooltip" id="tooltip02">
+					<p class="tooltip-tit" id="tooltip02-label">툴팁타이틀툴팁타이틀툴팁타이틀</p> <!-- 타이틀 없을 경우 해당 영역 삭제 -->
+					<div class="tooltip-contents" id="tooltip02-desc">
+						툴팁 컨텐츠 툴팁 컨텐츠 툴팁 컨텐츠 툴팁 컨텐츠 툴팁 컨텐츠 툴팁 컨텐츠 툴팁 컨텐츠 툴팁 컨텐츠 
+					</div>
+				</div>
+			</div>
+			<!-- //ui-tooltip -->
+		</div>
+
+		<h3 class="tit-guide">방향이 텍스트 위로</h3>
+		<div class="source-view">
+			<!-- ui-tooltip -->
+			<div class="ui-tooltip type-top">
+				<button type="button" class="btn-tooltip-open" role="button" aria-label="tooltip03-label" aria-describedby="tooltip03-desc" aria-controls="tooltip03">텍스트 위로</button><!-- 타이틀 없을 경우 aria-label 삭제 -->
+				<div class="tooltip-wrap" role="tooltip" id="tooltip03">
+					<p class="tooltip-tit" id="tooltip03-label">툴팁타이틀툴팁타이틀툴팁타이틀</p> <!-- 타이틀 없을 경우 해당 영역 삭제 -->
+					<div class="tooltip-contents" id="tooltip03-desc">
+						툴팁 컨텐츠 툴팁 컨텐츠 툴팁 컨텐츠 툴팁 컨텐츠 툴팁 컨텐츠 툴팁 컨텐츠 툴팁 컨텐츠 툴팁 컨텐츠 
+					</div>
+				</div>
+			</div>
+			<!-- //ui-tooltip -->
+		</div>
+
+
+	</div>
+</body>
+</html>
+

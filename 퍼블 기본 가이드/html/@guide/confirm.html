@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="title" content="퍼블리싱">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="No-Cache" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<title>UI GUIDE & IA</title>
+
+<!-- CSS :: CSS 파일 수정하지 마세요. -->
+<link type="text/css" rel="stylesheet" href="../../static/css/import.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../static/css/@guide.css" media="all" /><!-- @ 가이드 문서만 사용 -->
+
+<!-- JS :: JS 파일 수정하지 마세요. -->
+<script type="text/javascript" src="./js/@guide.js" defer></script><!-- @ 가이드 문서만 사용 -->
+<script type="text/javascript" src="./js/ui.common.js" defer></script><!-- @ 퍼블 화면확인용 js -->
+</head>
+<body>
+	<div class="cont-guide">
+	
+		<h2 class="tit-guide">CONFIRM</h2>
+
+		<div class="desc-guide">
+			btn-confirm-open 클릭 시 ui-confirm의 class에서 active 추가, bodyScroll.open() 참고<br />
+			취소 버튼 클릭시 ui-confirm의 class에서 active 삭제 confirmClose() , bodyScroll.close() 참고<br /><br />
+
+			<p class="tit color-red">접근성</p>
+			confirm-wrap 의 id 값과 btn-confirm-open 의 aria-controls 값이 동일해야함<br />
+			confirm-contents 의 id 값과 confirm-wrap의 aria-describedby값이 동일해야함
+		</div>
+
+		<h3 class="tit-guide">기본 - button 클릭시</h3>
+		<div class="source-view">
+			<button type="button" class="btn-confirm-open" role="button " aria-controls="confirm01">CONFIRM 열기111</button>
+
+			<!-- ui-confirm -->
+			<div class="ui-confirm">
+				<div class="confirm-wrap" role="alertdialog" aria-modal="true" aria-labelledby="confirm01-label" aria-describedby="confirm01-desc" id="confirm01"> <!-- 타이틀이 없을 경우 aria-labelledby 삭제 -->
+					<p class="confirm-title" id="confirm01-label">타이틀 영역입니다.</p><!--  타이틀이 없을 경우 해당 영역 삭제 -->
+					<div class="confirm-contents" id="confirm01-desc">
+						이건 버튼을 클릭해야 열리는 confirm 입니다<br />
+						취소를 누르면 닫힙니다.
+
+						<!-- 아이콘 & 텍스트 가운데정렬 -->
+						<i class="iconset ico-success"></i>
+						<p class="txt font15 text-center">회원탈퇴 처리되었습니다.</p>
+						<!-- //아이콘 & 텍스트 가운데정렬 -->
+					</div>
+					<div class="btn-wrap">
+						<button type="button" class="ui-btn" onClick="confirmClose(this)">취소</button>
+						<button type="button" class="ui-btn blue">확인</button>
+					</div>
+				</div>
+				<div class="bg-overlay"></div>
+			</div>
+			<!-- //ui-confirm -->
+		</div>
+
+		<h3 class="tit-guide">AUTO</h3>
+		<div class="source-view">
+			<!-- ui-confirm -->
+			<div class="ui-confirm active auto">
+				<div class="confirm-wrap" role="alertdialog" aria-modal="true" aria-describedby="confirm02-desc">
+					<div class="confirm-contents" id="confirm02-desc">
+						이건 자동으로 뜨는 confirm 창 입니다.<br />취소를 누르면 닫힙니다.
+					</div>
+					<div class="btn-wrap">
+						<button type="button" class="ui-btn" onClick="confirmClose(this)">취소</button>
+						<button type="button" class="ui-btn blue">확인</button>
+					</div>
+				</div>
+				<div class="bg-overlay"></div>
+			</div>
+			<!-- //ui-confirm -->
+		</div>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="title" content="퍼블리싱">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="No-Cache" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<title>UI GUIDE & IA</title>
+
+<!-- CSS :: CSS 파일 수정하지 마세요. -->
+<link type="text/css" rel="stylesheet" href="../static/css/import.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../static/css/@guide.css" media="all" /><!-- @ 가이드 문서만 사용 -->
+
+<!-- JS :: JS 파일 수정하지 마세요. -->
+<script type="text/javascript" src="./@guide/js/@dtree.js"></script><!-- @ 가이드 문서만 사용 -->
+<script type="text/javascript" src="./@guide/js/@guide.js" defer></script><!-- @ 가이드 문서만 사용 -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || (agent.indexOf("msie") != -1)){
+		alert("해당 브라우저는 지원하지 않습니다. \n다른 브라우저를 사용하여 확인해주세요. (크롬 최적화)");
+	}
+</script>
+</head>
+
+<body>
+	<!-- tree_wrap -->
+	<div class="tree-wrap">
+		<h1><a href="index.html">GUIDE & IA</a></h1>
+		<div class="container">
+
+			<!-- state -->
+			<div class="state">
+				<div class="progress">진척율 : <div class="bar"><span class="ing"></span></div></div>
+
+				<ul class="list-color">
+					<li data-state="대기">대기</li>
+					<li data-state="진행중">진행중</li>
+					<li data-state="삭제">메뉴 삭제</li>
+					<li data-state="미수급">미수급</li>
+					<li data-state="수정">수정</li>
+					<li data-state="검수요청">검수요청</li>
+					
+				</ul>
+
+				<div class="tree-ctrl">
+					<button type="button" data-name="open">전체 열기</button>
+					<button type="button" data-name="close">전체 닫기</button>
+					<button type="button" data-name="guide">가이드만 열기</button>
+					<button type="button" data-name="ia">IA만 열기</button>
+				</div>
+			</div>
+			<!-- //state -->
+
+			<div class="left">
+				<div class="tree">
+					<script>
+
+						// guide list
+						var guideList = {
+							'GUIDE': {
+								'Default Setting' : ['./@guide/default-setting.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+								'Guide-list (알파벳순)' : {
+									'Form' : {
+										'write' : ['./@guide/form-list.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+										'result' : ['./@guide/form-result.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+									},
+									'Accordion' : ['./@guide/accordion.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+									'Badge' : ['./@guide/badge.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+									'Box' : ['./@guide/box.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+									'Button' : ['./@guide/button.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+									'Checkbox' : ['./@guide/checkbox.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+									'Confirm' : ['./@guide/confirm.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+									'List' : ['./@guide/list.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+									'Radio' : ['./@guide/radio.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+									'Selectbox' : ['./@guide/selectbox.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+									'Tab' : ['./@guide/tab.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+									'Table' : ['./@guide/table.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+									'TextField' : ['./@guide/textfield.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+									'Text' : ['./@guide/text.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+									'Title' : ['./@guide/title.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+									'Toast' : ['./@guide/toast.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+									'Tooltip' : ['./@guide/tooltip.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+									'ETC' : ['./@guide/etc.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+									'ICON' : ['./@guide/icon.html', '진행중', '조형호', '2022-02-22', 'guideFrame'],
+								},
+							},
+						};
+
+						/*
+							@ 리스트 작성 방법
+							'이름(화면ID)': ['파일경로', '상태', '작업자', '최종 작업일', 'mainFrame'],
+
+							※ 작업 진행중 후 상태 값 (진행중 -> 진행중) 변경 할 것!!!!!!!
+						*/
+						// IA list
+						var iaList = {
+							'신규프로젝트':{
+								'Layout' : { 
+									'main' : ['../html/page/@layout/layout-main.html', '대기', '조형호', '2022-12-05', 'mainFrame'],
+								},
+								'공통' : {
+									'설정' : { 
+										'설정_메인' : ['../html/page/.html', '진행중', '조형호', '2022-10-25', 'mainFrame'], 
+										'설정_메인(모바일)' : ['../html/page/.html', '진행중', '조형호', '2022-10-25', 'mobileFrame'], 
+									},
+									'로그인' : { 
+										'로그인' : ['../html/page/.html', '검수요청', '조형호', '2022-09-06', 'mainFrame'], 
+									},
+									'기타 페이지' : ['../html/page/.html', '미수급', '조형호', '2022-12-15', 'mainFrame'],
+									
+								},
+
+
+								'Menu-1' : {
+									'Menu-1_1' : { 
+										'Menu-1_1_1' : ['../html/page/.html', '진행중', '조형호', '2022-10-31', 'mainFrame'],
+									},
+									'Menu-1_2' : {
+										'Menu-1_2_1' : { 
+											'Menu-1_2_1_1' : ['../html/page/.html', '진행중', '조형호', '2022-09-13', 'mainFrame'],
+											'Menu-1_2_1_2' : ['../html/page/.html', '진행중', '조형호', '2022-09-13', 'mainFrame'],
+										},
+
+										'Menu-1_2_2' : { 
+											'Menu-1_2_2_1' : ['../html/page/.html', '진행중', '조형호', '2022-09-29', 'mainFrame'],
+										},
+									},
+									'Menu-1_3' : {
+										'Menu-1_3_1' : {
+											'Menu-1_3_1_1' : ['../html/page/.html', '진행중', '조형호', '2022-12-20', 'mainFrame'],
+										}
+									},
+								},
+
+							}
+						}
+
+						var menuGuide = new dTree('menuGuide', guideList);
+						var menuIA = new dTree('menuIA', iaList);
+						document.write(menuGuide,menuIA)
+						menuIA.openAll(); // IA 열기
+						menuGuide.closeAll(); //GUIDE 닫기
+
+						menuIA.closeLv(1);
+						menuIA.closeFold();
+
+						//menuIA.closeAll(); // IA 닫기
+						///menuGuide.openAll(); // GUIDE 열기
+						
+					</script>
+				</div>
+			</div>
+
+			<div class="right">
+				<iframe src="./@guide/default-setting.html" frameborder="0" width="100%" height="100%" id="guideFrame" name="guideFrame" style="background:#fff" title="컨텐츠"></iframe>
+				<iframe src="./@guide/default-setting.html" frameborder="0" width="100%" height="100%" id="mainFrame" name="mainFrame" style="background:#fff" title="컨텐츠" class="hide"></iframe>
+				<div class="mFrame">
+					<iframe src="./@guide/default-setting.html" frameborder="0" width="360" height="720" id="mobileFrame" name="mobileFrame" style="background:#fff" class="hide" title="컨텐츠"></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //tree_wrap -->
+</body>
+</html>

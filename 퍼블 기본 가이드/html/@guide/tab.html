@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="title" content="퍼블리싱">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="No-Cache" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<title>UI GUIDE & IA</title>
+
+<!-- CSS :: CSS 파일 수정하지 마세요. -->
+<link type="text/css" rel="stylesheet" href="../../static/css/import.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../static/css/@guide.css" media="all" /><!-- @ 가이드 문서만 사용 -->
+
+<!-- JS :: JS 파일 수정하지 마세요. -->
+<script type="text/javascript" src="./js/@guide.js" defer></script><!-- @ 가이드 문서만 사용 -->
+<script type="text/javascript" src="./js/ui.common.js" defer></script><!-- @ 퍼블 화면확인용 js -->
+</head>
+<body>
+	<div class="cont-guide">
+		<h2 class="tit-guide">TAB</h2>
+
+		<div class="desc-guide">
+			@@ 접근성 @@<br />
+			1. <b>"tab 버튼의 id 값"</b> 과 <b>"tab-contents의 aria-labelledby 값"</b>이 <b>일치</b> 해야함.<br />
+			2. <b>"tab 버튼의 aria-controls의 값"</b> 과 <b>"tab-content의 id 값"</b>이 <b>일치</b> 해야함.<br />
+			3. 추가사항!!! <span class="color-red">tab 버튼의 속성에 aria-selected 값 추가됨 : 활성시 true 비활성시 false</span>
+			<br /><br />
+			<p class="color-red">탭 기본 소스와 popup 안의 탭 소스는 동일합니다. css에서 상위에 따라 자동으로 디자인 변경</p>
+		</div>
+
+		<h3 class="tit-guide">기본</h3>
+		<h4 class="tit-guide">탭 개수 = 컨텐츠 개수</h4>
+		<div class="source-view">
+			<!-- ui-tab -->
+			<div class="ui-tab">
+				<ul class="tab-nav" role="tablist">
+					<li><button type="button" role="tab" aria-selected="true" aria-controls="tab-panel1-1" id="tab01-1" class="active">1번 탭</button></li> <!-- 활성화 시 class active 추가 -->
+					<li><button type="button" role="tab" aria-selected="false" aria-controls="tab-panel1-2" id="tab01-2">2번 탭</button></li>
+				</ul>
+				<div class="tab-contents active" role="tabpanel" aria-labelledby="tab01-1" id="tab-panel1-1"> <!-- 활성화 시 class active 추가 -->
+					1번 내용<br>
+					1번 내용<br>
+					1번 내용<br>
+				</div>
+
+				<div class="tab-contents" role="tabpanel" aria-labelledby="tab01-2" id="tab-panel1-2">
+					2번 내용 2번 내용 2번 내용 2번 내용 2번 내용 2번 내용<br>
+					2번 내용<br>
+					2번 내용<br>
+				</div>
+			</div>
+			<!-- // ui-tab -->
+		</div>
+
+		<h4 class="tit-guide">탭 N개, 컨텐츠 1개</h4>
+		<div class="source-view">
+			<!-- ui-tab -->
+			<div class="ui-tab">
+				<ul class="tab-nav" role="tablist">
+					<li><button type="button" role="tab" aria-selected="true" aria-controls="tab-panel2-1" id="tab02-1" class="active">1번 탭</button></li> <!-- 활성화 시 class active 추가 -->
+					<li><button type="button" role="tab" aria-selected="false" aria-controls="tab-panel2-2" id="tab02-2">2번 탭</button></li>
+				</ul>
+				<div class="tab-contents active" role="tabpanel" aria-labelledby="tab02-1" id="tab-panel2-1"> <!-- 활성화 시 id / aria-labelledby 값도 button의 활성 값과 동일하게 변경해주세요. -->
+					탭 컨텐츠 영역이 하나입니다<br />
+					탭 컨텐츠 영역이 하나입니다<br />
+					탭 컨텐츠 영역이 하나입니다<br />
+				</div>
+			</div>
+			<!-- // ui-tab -->
+		</div>
+
+	</div>
+</body>
+</html>

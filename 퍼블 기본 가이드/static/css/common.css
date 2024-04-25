@@ -1,0 +1,167 @@
+@charset "utf-8"; 
+
+/* COMMON */
+body {height:100%; min-height:100%; background:#fff}
+body.no-scroll {overflow:hidden; position:fixed; touch-action:none}
+hr {margin:0; height:1px; border:0}
+.roboto {font-family:"Roboto", sans-serif !important}
+.text-center {text-align:center !important}
+.text-left {text-align:left !important}
+.text-right {text-align:right !important}
+.color-222 {color:#222 !important}
+.color-444 {color:#444 !important}
+.color-666 {color:#666 !important}
+.color-red {color:#c4002f !important}
+.color-red2 {color:#df0000 !important}
+.color-blue {color:#0073d6 !important}
+.color-blue2 {color:#0355a7 !important}
+.bold {font-weight:700 !important}
+.mtb0 {margin-top:0 !important; margin-bottom:0 !important}
+.t40b12 {margin-top:40px !important; margin-bottom:12px !important}
+.t20b20 {margin-top:20px !important; margin-bottom:20px !important}
+.mb0 {margin-bottom:0 !important}
+.mb4 {margin-bottom:4px !important}
+.mb8 {margin-bottom:8px !important}
+.mb10 {margin-bottom:10px !important}
+.mb12 {margin-bottom:12px !important}
+.mb15 {margin-bottom:15px !important}
+.mb20 {margin-bottom:20px !important}
+.mb30 {margin-bottom:30px !important}
+.mb40 {margin-bottom:40px !important}
+.mt0 {margin-top:0 !important}
+.mt4 {margin-top:4px !important}
+.mt8 {margin-top:8px !important}
+.mt10 {margin-top:10px !important}
+.mt12 {margin-top:12px !important}
+.mt15 {margin-top:15px !important}
+.mt20 {margin-top:20px !important}
+.mt30 {margin-top:30px !important}
+.mt40 {margin-top:40px !important}
+.pt0 {padding-top:0 !important}
+.pb0 {padding-bottom:0 !important}
+.font13 {font-size:1.3rem !important; line-height:1.8rem !important}
+.font14 {font-size:1.4rem !important; line-height:2rem !important}
+.font15 {font-size:1.5rem !important; line-height:2.2rem !important}
+.font16 {font-size:1.6rem !important; line-height:2.4rem !important}
+.font17 {font-size:1.7rem !important; line-height:2.5rem !important}
+.font18 {font-size:1.8rem !important; line-height:2.6rem !important}
+.font19 {font-size:1.9rem !important; line-height:2.6rem !important}
+.font20 {font-size:2rem !important; line-height:2.8rem !important}
+.font21 {font-size:2.1rem !important; line-height:2.8rem !important}
+.font24 {font-size:2.4rem !important; line-height:3.2rem !important}
+.font25 {font-size:2.5rem !important; line-height:3.2rem !important}
+.font26 {font-size:2.6rem !important; line-height:3.2rem !important}
+.fw400 {font-weight:400 !important}
+.fw500 {font-weight:500 !important}
+.fw500.font15 {line-height:2.2rem !important}
+.fw700 {font-weight:700 !important}
+
+/* LAYOUT */
+#app {overflow:hidden}
+
+/* FORM */
+
+/* ACCORDION */
+.ui-accordion {margin:0}
+.ui-accordion .toggle-target {display:none;  padding:30px 20px; color:#222; font-size:1.5rem; line-height:2.1rem; background:#f6f6f6}
+.ui-accordion .toggle-target.active {display:block}
+
+/* BADGE */
+.badge {display:inline-block; margin-right:6px; padding:0 6px; height:2.25rem; border:1px solid #ccc; border-radius:2px; box-sizing:border-box; color:#222; font-size:1.3rem; font-weight:normal; line-height:2rem; vertical-align:top; background:#fff}
+
+/* CONFIRM */
+.ui-confirm {position:relative; z-index:999}
+.ui-confirm .confirm-wrap {display:flex; visibility:hidden; overflow:hidden; flex-direction:column; position:fixed; bottom:-150%; left:50%; z-index:999; width:calc(100% - 50px); max-width:310px; border-radius:15px; box-sizing:border-box; background:#fff; transition:visibility 0.3s, bottom 0.3s; transform:translate(-50%, 50%)}
+.ui-confirm .bg-overlay {transition:visibility 0.3s, bottom 0.3s, opacity 0.3s, background-color 0.3s}
+.ui-confirm.active .confirm-wrap {visibility:visible; bottom:50%}
+.ui-confirm.active.auto .confirm-wrap {visibility:visible; bottom:50%; animation:0.3s delay-show}
+@keyframes delay-show {0% {visibility:hidden; bottom:-150vh}}
+
+/* TAB */
+.ui-tab {display:flex; flex-direction:column; position:relative; margin-top:20px; flex:1 0 auto}
+.ui-tab:first-child {margin-top:0}
+.ui-tab .tab-nav {display:flex; margin:0 -20px}
+.ui-tab .tab-nav li {width:100%}
+.ui-tab .tab-nav li [role="tab"] {display:flex; position:relative; width:100%; height:50px; color:#666; font-size:1.6rem; white-space:nowrap; align-items:center; justify-content:center}
+.ui-tab .tab-nav li [role="tab"]:after {display:block; position:absolute; bottom:0; left:0; width:100%; height:1px; background:#aaa; content:""}
+.ui-tab .tab-nav li [role="tab"].active {color:#222; font-weight:700}
+.ui-tab .tab-nav li [role="tab"].active:after {height:3.5px; background:#0073d6}
+.ui-tab .tab-contents {display:none; padding:20px 0 0}
+.ui-tab .tab-contents .result-count:first-child {margin-bottom:11px; font-size:1.4rem}
+.ui-tab .tab-contents .step-wrap {margin:-20px -20px 20px}
+.ui-tab .tab-contents .form-list:first-child {margin-top:10px}
+.ui-tab .tab-contents>.full-gray:first-child {margin-top:-20px}
+.ui-tab .tab-contents.active {display:flex; flex-direction:column; flex:1 0 auto}
+.box+.contents .ui-tab:first-child {margin-top:0}
+.layer-contents .ui-tab {flex:1}
+
+/* TABLE */
+.tbl-caption {padding:12.5px 20px; border-top:2px solid #999; color:#222; font-size:1.5rem; line-height:2.2rem; text-align:center}
+.table-wrap {background:#fff}
+.table-wrap table {width:100%; table-layout:fixed}
+.table-wrap table th {color:#222; font-size:1.4rem; font-weight:500; line-height:2rem; background:#f3f3f3}
+.table-wrap table td {color:#222; font-size:1.4rem; line-height:2rem}
+.table-wrap table td.roboto {font-weight:500}
+.table-wrap table span.ui-check {margin:0}
+.table-wrap.col table thead th {padding:12px 10px; border-top:2px solid #999; text-align:center}
+.table-wrap.col table thead th label {font-weight:500}
+.table-wrap.col table thead th+th {border-left:1px solid #ddd}
+.table-wrap.col table td {padding:10px; border:1px solid #ddd}
+.table-wrap.col table tbody th {padding:12px 10px; border-top:1px solid #ddd; text-align:center}
+.table-wrap.col table tbody tr:last-child th {border-bottom:1px solid #ddd}
+.table-wrap.col table td:first-child {border-left:0}
+.table-wrap.col table td:last-child {border-right:0}
+.table-wrap.col table td.text-left {padding-right:10px; padding-left:10px}
+.table-wrap.row table tr:first-child th,
+.table-wrap.row table tr:first-child td {border-top:2px solid #999}
+.table-wrap.row table th {padding:10px; border-bottom:1px solid #ddd; text-align:center}
+.table-wrap.row table td {padding:10px 0; border:1px solid #ddd; text-align:center}
+.table-wrap.row table td:last-child {border-right:0}
+.table-wrap.text-center table td {padding:10px 0; text-align:center}
+.table-wrap.text-center table td .pay {text-align:center}
+.table-wrap+.table-wrap {margin-top:30px}
+.table-wrap+.ui-accordion {margin-top:20px}
+.scroll-table.table-wrap {overflow-x:auto}
+.scroll-table.table-wrap table {min-width:500px}
+
+/* TOAST */
+.ui-toast {display:block; visibility:hidden; position:fixed; top:8px; right:15px; left:15px; z-index:9999; padding:12px; min-height:44px; border-radius:2px; box-sizing:border-box; color:#fff; font-size:1.4rem; font-weight:500; line-height:2rem; text-align:center; background:#0355a7; animation:completeText 3s ease-in-out 0.1s; opacity:0}
+@keyframes completeText {0% {visibility:visible; opacity:0}
+25% {opacity:1}
+85% {opacity:1}
+100% {opacity:0}}
+
+/* TOOLTIP */
+.btn-tooltip-open {display:block; overflow:hidden; position:relative}
+.btn-tooltip-open:after {display:inline-block; overflow:hidden; margin-left:5px; width:16px; height:16px; border-radius:100%; text-indent:-9999rem; vertical-align:sub; background:#fff url("../images/common/bg/bg-tooltip.png") no-repeat 50% 50%; background-size:16px 16px; content:"툴팁 열기"}
+.btn-tooltip-open.hide {width:16px; height:16px; text-indent:-9999rem}
+.btn-tooltip-open.hide:after {position:absolute; top:0; left:0; margin:0}
+.btn-tooltip-open.req:before {display:inline-block; position:absolute; top:0; right:20px; margin:3px 0 0 3px; width:4px; height:4px; border-radius:100% 100%; vertical-align:top; background:#fd3c5a; content:""}
+.btn-tooltip-open.req:after {margin:2px 0 0 12px}
+.ui-tooltip {display:block; position:relative}
+.ui-tooltip .tit {margin:0}
+.ui-tooltip .tit:after {margin-top:5px; vertical-align:top}
+.ui-tooltip .tooltip-wrap {display:flex; visibility:hidden; flex-direction:column; position:absolute; top:110%; left:0; z-index:2; padding:15px; min-width:max-content; max-width:80vw; border:1px solid #d5bebf; border-radius:4px; word-break:break-word; background:#fff7f6; box-shadow:0 1.5px 4px 0 #858e97; opacity:0}
+.ui-tooltip .tooltip-wrap .tooltip-tit {display:flex; margin-bottom:8px; color:#ba0065; font-size:1.6rem; font-weight:500; line-height:2rem; align-items:center}
+.ui-tooltip .tooltip-wrap .tooltip-tit:before {display:block; margin-right:5px; width:16px; height:16px; border:1px solid #ba0065; border-radius:16px; box-sizing:border-box; color:#ba0065; font-family:"Roboto", sans-serif; font-size:1.2rem; font-weight:700; line-height:16px; text-align:center; text-indent:0; content:"?"}
+.ui-tooltip .tooltip-wrap .tooltip-contents {min-width:auto; max-width:75vw; color:#222; font-size:1.4rem; font-weight:400; line-height:2rem}
+.ui-tooltip .tooltip-wrap .num-list>li>p+ul,
+.ui-tooltip .tooltip-wrap .num-list>li>p+ul>li+li {margin-top:5px}
+.ui-tooltip .tooltip-wrap .tooltip-contents .dash-list li {margin-top:8px; font-size:1.4rem; font-weight:400}
+.ui-tooltip.active .tooltip-wrap {visibility:visible; z-index:3; transition:visibility 0.3s, opacity 0.3s; opacity:1}
+.ui-tooltip.type-top .tooltip-wrap {top:auto; bottom:110%}
+
+
+
+/* ETC */
+/* no-result */
+.no-result {display:flex; flex-direction:column; margin:50px 0; flex:1; align-items:center; justify-content:center}
+.no-result .txt {color:#444; font-size:1.4rem; line-height:2.1rem; text-align:center}
+.no-result .iconset {margin:0 0 15px}
+.no-result strong {display:block; margin-bottom:2px; font-size:1.6rem; font-weight:500; line-height:2.1rem}
+
+
+/* ICON */
+.iconset {display:inline-block; overflow:hidden; margin:0 4px 0 0; padding:0; text-indent:-9999rem; vertical-align:top; background-repeat:no-repeat; background-position:50% 50%; background-size:cover}
+/* icon-list */
+[class*="ico-list0"] {width:32px; height:32px; border-radius:100%; background-size:32px 32px; flex:none}

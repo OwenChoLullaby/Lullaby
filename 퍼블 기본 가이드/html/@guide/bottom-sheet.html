@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="title" content="퍼블리싱">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="No-Cache" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<title>UI GUIDE & IA</title>
+
+<!-- CSS :: CSS 파일 수정하지 마세요. -->
+<link type="text/css" rel="stylesheet" href="../../static/css/import.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../static/css/@guide.css" media="all" /><!-- @ 가이드 문서만 사용 -->
+
+<!-- JS :: JS 파일 수정하지 마세요. -->
+<script type="text/javascript" src="./js/@guide.js" defer></script><!-- @ 가이드 문서만 사용 -->
+<script type="text/javascript" src="./js/ui.common.js" defer></script><!-- @ 퍼블 화면확인용 js -->
+</head>
+<body>
+	<div class="cont-guide">
+	
+		<h2 class="tit-guide">BOTTOM SHEET</h2>
+
+		<div class="desc-guide">
+			btn-layer-open 클릭 시 ui-layer의 class에 active 추가 / body class no-scroll 추가 (bodyScroll.open() 참고)<br />
+			btn-layer-close 클릭 시 ui-layer의 class에서 active 삭제 / body class no-scroll 삭제 (bodyScroll.close() 참고)<br />
+			<b>TYPE-SELECT 에서 select-list의 옵션 선택시 btn-layer-open의 class에 has-value 추가</b>
+			<br />
+			<p class="tit color-red">접근성</p>
+			layer-wrap의 id 값과 btn-layer-open 의 aria-controls의 값이 같아야함<br />
+			layer-title id값과 layer-wrap의 aria-labelledby의 값이 같아야함<br />
+			layer-contents id값과 layer-wrap의 aria-describedby의 값이 같아야함<br />
+			TYPE-SELECT 의 경우 select-list의 aria-labelledby값이 layer-title과 같아야함<br />
+		</div>
+
+		<h3 class="tit-guide">풀 팝업 스타일</h3>
+		<div class="source-view">
+			<!-- ui-layer -->
+			<div class="ui-layer">
+				<button type="button" class="btn-layer-open" role="button" aria-controls="dialog01">레이어 팝업 열기</button>
+
+				<!-- layer-wrap -->
+				<div class="layer-wrap" role="dialog" aria-labelledby="dialog01-label" aria-describedby="dialog01-desc" aria-modal="true" id="dialog01">
+					<p class="layer-title" id="dialog01-label">레이어팝업 타이틀</p>
+
+					<!-- layer-contents -->
+					<div class="layer-contents" id="dialog01-desc">
+						여기는 레이어 팝업의 컨텐츠
+					</div>
+					<!-- //layer-contents -->
+
+					<div class="btn-wrap">
+						<button type="button" class="ui-btn size-s">취소</button>
+						<button type="button" class="ui-btn blue">확인</button>
+					</div>
+
+					<button type="button" class="btn-layer-close">닫기</button>
+				</div>
+				<!-- // layer-wrap -->
+				<div class="bg-overlay"></div>
+			</div>
+			<!-- //ui-layer -->
+		</div>
+
+		<h3 class="tit-guide">기본 - 높이 AUTO(컨텐츠 높이에 따라 자동조절)</h3>
+		<div class="source-view">
+			<!-- ui-layer -->
+			<div class="ui-layer type-auto">
+				<button type="button" class="btn-layer-open" role="button" aria-controls="dialog02">레이어 팝업 열기</button>
+
+				<!-- layer-wrap -->
+				<div class="layer-wrap" role="dialog" aria-labelledby="dialog02-label" aria-describedby="dialog02-desc" aria-modal="true" id="dialog02">
+					<p class="layer-title" id="dialog02-label">타이틀을 입력하세요</p>
+
+					<!-- layer-contents -->
+					<div class="layer-contents" id="dialog02-desc">
+						<!-- 이 영역은 컨텐츠영역 입니다 -->
+
+						<ul class="border-list justify-list">
+							<li>
+								<span class="title">선택건수</span>
+								<span><em class="roboto color-blue fw700">2</em>건</span>
+							</li>
+							<li>
+								<span class="title">총 납부금액</span>
+								<span><em class="roboto color-blue fw700">288,000</em>원</span>
+							</li>
+						</ul>
+					</div>
+					<!-- //layer-contents -->
+
+					<!-- btn-wrap -->
+					<div class="btn-wrap">
+						<button type="button" class="ui-btn blue">확인</button>
+						<!-- <button type="button" class="ui-btn blue" disabled>확인</button> -->
+					</div>
+					<!-- // btn-wrap -->
+
+					<button type="button" class="btn-layer-close">닫기</button>
+				</div>
+				<!-- //layer-wrap -->
+				<div class="bg-overlay"></div>
+			</div>
+			<!-- //ui-layer -->
+		</div>
+
+		<h3 class="tit-guide">TYPE-SELECT</h3>
+		<div class="source-view">
+			<!-- ui-layer -->
+			<div class="ui-layer type-auto">
+				<button type="button" class="btn-layer-open" role="button" aria-controls="dialog03">전체</button>
+
+				<!-- layer-wrap -->
+				<div class="layer-wrap" role="dialog" aria-labelledby="dialog03-label" aria-describedby="dialog03-desc" aria-modal="true" id="dialog03">
+					<p class="layer-title" id="dialog03-label">분류선택</p>
+
+					<!-- layer-contents -->
+					<div class="layer-contents" id="dialog03-desc">
+						<ul class="select-list" role="listbox" aria-labelledby="dialog03-label">
+							<li><button type="button" class="active">전체</button></li>
+							<li><button type="button">공통</button></li>
+							<li><button type="button">가입/인증/접속</button></li>
+							<li><button type="button">전자신고납부</button></li>
+							<li><button type="button">전자조회</button></li>
+							<li><button type="button">전자신청</button></li>
+							<li><button type="button">기타</button></li>
+							<li><button type="button">기타1</button></li>
+							<li><button type="button">기타2</button></li>
+							<li><button type="button">기타3</button></li>
+						</ul>
+					</div>
+					<!-- //layer-contents -->
+
+					<!-- btn-wrap -->
+					<div class="btn-wrap">
+						<button type="button" class="ui-btn blue">확인</button>
+						<!-- <button type="button" class="ui-btn blue" disabled>확인</button> -->
+					</div>
+					<!-- // btn-wrap -->
+
+					<button type="button" class="btn-layer-close">닫기</button>
+				</div>
+				<!-- //layer-wrap -->
+				<div class="bg-overlay"></div>
+			</div>
+			<!-- //ui-layer -->
+		</div>
+
+		<h3 class="tit-guide">AUTO (버튼 클릭없이 뜨는 팝업)</h3>
+		<div class="source-view">
+			<!-- ui-layer -->
+			<div class="ui-layer active auto">
+				<!-- layer-wrap -->
+				<div class="layer-wrap" role="dialog" aria-labelledby="dialog04-label" aria-describedby="dialog04-desc" aria-modal="true" id="dialog04">
+					<p class="layer-title" id="dialog04-label">이 팝업은 별도의 클릭 없이 자동으로 뜨는 팝업입니다.</p>
+
+					<!-- layer-contents -->
+					<div class="layer-contents" id="dialog04-desc">
+						이 팝업은 별도의 클릭 없이 자동으로 뜨는 팝업입니다.
+					</div>
+					<!-- //layer-contents -->
+
+					<!-- btn-wrap -->
+					<div class="btn-wrap">
+						<button type="button" class="ui-btn blue">확인</button>
+						<!-- <button type="button" class="ui-btn blue" disabled>확인</button> -->
+					</div>
+					<!-- // btn-wrap -->
+
+					<button type="button" class="btn-layer-close">닫기</button>
+				</div>
+				<!-- //layer-wrap -->
+				<div class="bg-overlay"></div>
+			</div>
+			<!-- //ui-layer -->
+		</div>
+
+	</div>
+</body>
+</html>

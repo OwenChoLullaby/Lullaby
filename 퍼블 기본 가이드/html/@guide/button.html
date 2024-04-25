@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="title" content="퍼블리싱">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="No-Cache" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<title>UI GUIDE & IA</title>
+
+<!-- CSS :: CSS 파일 수정하지 마세요. -->
+<link type="text/css" rel="stylesheet" href="../../static/css/import.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../static/css/@guide.css" media="all" /><!-- @ 가이드 문서만 사용 -->
+
+<!-- JS :: JS 파일 수정하지 마세요. -->
+<script type="text/javascript" src="./js/@guide.js" defer></script><!-- @ 가이드 문서만 사용 -->
+<script type="text/javascript" src="./js/ui.common.js" defer></script><!-- @ 퍼블 화면확인용 js -->
+</head>
+<body>
+	<div class="cont-guide">
+	
+		<h2 class="tit-guide">BUTTON</h2>
+
+		<!-- desc-guide -->
+		<div class="desc-guide">
+			<p class="tit color-red">접근성</p>
+
+			<dl>
+				<dt class="fw700 font18">a 태그 사용예</dt>
+				<dd class="desc mt4 mb20">
+					<p class="dot-txt">브라우저의 redraw/refresh가 일어날 때</p>
+					<p class="dot-txt">다른 문서로 링크하거나 새 창으로 페이지를 열 때</p>
+					<p class="dot-txt">href 속성에 따라 페이지가 이동할 때</p>
+					<p class="mt8">
+						<strong class="color-red">a 태그를 사용 할 경우 href 속성이 없으면 포커스가 이동되지 않습니다. 키보드 또는 스크린 리더로 접근이 불가능하여 접근성에 위배됩니다.</strong><br/>
+						<strong>a 태그 사용시 href 속성이 아닌 onclick 이벤트로 페이지 이동을 처리할 경우 href="" 또는 href="javascript:void(0)" 으로 href 를 작성해주세요 (href 는 필히 있어야함!)</strong>
+					</p>
+				</dd>
+
+				<dt class="fw700 font18">button 태그 사용예</dt>
+				<dd class="mt4">
+					<p class="dot-txt">동작을 위한 스크립트가 필요할때 (레이어 팝업을 열거나 닫을때)</p>
+					<p class="dot-txt">폼을 전송하거나 취소할 때 등등</p>
+				</dd>
+			</dl>
+		</div>
+		<!-- //desc-guide -->
+
+		<h3 class="tit-guide">GROUP</h3>
+		<div class="source-view">
+			<!-- btn-wrap -->
+			<div class="btn-wrap">
+				<a href="" class="ui-btn">ui-btn</a>
+			</div>
+			<!-- // btn-wrap -->
+
+			<!-- btn-wrap -->
+			<div class="btn-wrap">
+				<a href="" class="ui-btn light">ui-btn light</a>
+			</div>
+			<!-- // btn-wrap -->
+
+			<!-- btn-wrap -->
+			<div class="btn-wrap">
+				<a href="" class="ui-btn blue">ui-btn blue</a>
+			</div>
+			<!-- // btn-wrap -->
+
+			<!-- btn-wrap -->
+			<div class="btn-wrap">
+				<a href="" class="ui-btn">ui-btn</a>
+				<a href="" class="ui-btn blue">ui-btn blue</a>
+			</div>
+			<!-- // btn-wrap -->
+
+			<!-- btn-wrap -->
+			<div class="btn-wrap">
+				<a href="" class="ui-btn light">ui-btn light</a>
+				<a href="" class="ui-btn blue">ui-btn blue</a>
+			</div>
+			<!-- // btn-wrap -->
+
+			<!-- btn-wrap -->
+			<div class="btn-wrap">
+				<a href="" class="ui-btn" disabled>ui-btn [disabled]</a>
+				<a href="" class="ui-btn blue" disabled>ui-btn blue [disabled]</a>
+			</div>
+			<!-- // btn-wrap -->
+
+		</div>
+
+	</div>
+</body>
+</html>
+

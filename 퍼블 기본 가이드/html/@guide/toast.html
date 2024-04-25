@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="title" content="퍼블리싱">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="No-Cache" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<title>UI GUIDE & IA</title>
+
+<!-- CSS :: CSS 파일 수정하지 마세요. -->
+<link type="text/css" rel="stylesheet" href="../../static/css/import.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../../static/css/@guide.css" media="all" /><!-- @ 가이드 문서만 사용 -->
+
+<!-- JS :: JS 파일 수정하지 마세요. -->
+<script type="text/javascript" src="./js/@guide.js" defer></script><!-- @ 가이드 문서만 사용 -->
+<script type="text/javascript" src="./js/ui.common.js" defer></script><!-- @ 퍼블 화면확인용 js -->
+</head>
+<body>
+	<div class="cont-guide">
+
+		<h2 class="tit-guide">LAYER POPUP</h2>
+
+		<div class="desc-guide">
+			<p class="color-red">접근성 : 입력필드 누락 체크시 input 태그의 "aria-controls" 와 토스트 팝업의 "aria-live"가 동일해야합니다. :: 하단 예제소스 참조</p>
+<p class="tit mb12 mt20">예제) TYPE - input </p>
+<xmp><span class="inp-label req">항목1</span>
+<div class="input-wrap search">
+	<input type="text" title="첨부파일명 입력" placeholder="파일명을 입력하세요." class="ui-input" aria-controls="toast-msg01">
+	<button type="button" class="btn-del">삭제</button>
+	<button type="button" class="btn-search">검색</button>
+</div>
+<!-- ui-toast -->
+<div class="ui-toast" aria-live="toast-msg01">
+	첨부파일명은 필수 입력항목입니다.
+</div>
+<!-- //ui-toast -->
+</xmp>
+<p class="tit mb12 mt20">예제) TYPE - radio & checkbox</p>
+<xmp><ul class="ui-check mt20 mb20" aria-controls="toast-msg02">
+	<li><input type="radio" id="radio01-1" name="radio01"><label for="radio01-1">동의합니다.</label></li>
+	<li><input type="radio" id="radio01-2" name="radio01"><label for="radio01-2">동의하지않습니다.</label></li>
+</ul>
+<!-- ui-toast -->
+<div class="ui-toast" aria-live="toast-msg02">
+	필수 선택항목을 선택해주세요.
+</div>
+<!-- //ui-toast -->
+</xmp>
+
+<p class="tit mb12 mt20">지정 항목에 대한 토스트팝업이 아닐경우엔 aria-live 삭제</p>
+<xmp><!-- ui-toast -->
+<div class="ui-toast">
+	자동납부 신청이 정상 처리되었습니다.
+</div>
+<!-- //ui-toast -->
+</xmp>
+		</div>
+
+		<h3 class="tit-guide">기본</h3>
+		<div class="source-view">
+			<!-- ui-toast -->
+			<div class="ui-toast" aria-live="필수 체크 사항의 aria-controls 값 입력"> <!-- 최종 완료 메세지 일 경우에는 aria-live 삭제 -->
+				이 메세지는 나타났다가 사라집니다!이 메세지는 나타났다가 사라집니다!이 메세지는 나타났다가 사라집니다!이 메세지는 나타났다가 사라집니다!이 메세지는 나타났다가 사라집니다!이 메세지는 나타났다가 사라집니다!이 메세지는 나타났다가 사라집니다!이 메세지는 나타났다가 사라집니다!이 메세지는 나타났다가 사라집니다!이 메세지는 나타났다가 사라집니다!이 메세지는 나타났다가 사라집니다!이 메세지는 나타났다가 사라집니다!이 메세지는 나타났다가 사라집니다!이 메세지는 나타났다가 사라집니다!이 메세지는 나타났다가 사라집니다!이 메세지는 나타났다가 사라집니다!이 메세지는 나타났다가 사라집니다!이 메세지는 나타났다가 사라집니다!
+			</div>
+			<!-- //ui-toast -->
+		</div>
+
+	</div>
+</body>
+</html>

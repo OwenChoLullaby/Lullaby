@@ -1,0 +1,128 @@
+@charset "utf-8"; 
+
+xmp {margin:0; padding:0; white-space:pre-wrap}
+iframe {vertical-align:top}
+body:before,body:after {display:none}
+::-webkit-scrollbar {width:7px; height:7px}
+::-webkit-scrollbar-thumb {border-radius:5px; background-color:#ccc; background-clip:padding-box}
+::-webkit-scrollbar-track {border-radius:5px; background-color:#fff; box-shadow:inset 0 0 5px white}
+
+/* Guide - 레이아웃 */
+.tree-wrap {min-width:960px; height:100%; font-size:14px}
+.tree-wrap h1 {position:fixed; top:0; right:0; left:0; margin:0; padding:13px 10px; height:26px; background:#333; color:#fff; font-size:26px; font-weight:500; letter-spacing:-2px; line-height:1;}
+.tree-wrap h1 a {display:inline-block; text-decoration:none; vertical-align:top}
+.tree-wrap .container {margin-top:0; padding:52px 0 0; height:100%; box-sizing:border-box}
+.tree-wrap .left {overflow:auto; position:fixed; top:168px; bottom:0; left:0; width:300px; border-right:1px solid #999; box-sizing:border-box; background:#fff}
+.tree-wrap .right {display:flex; overflow:hidden; margin-left:300px; height:100%; box-sizing:border-box; background:#ccc; align-items:center; justify-content:center}
+.tree-wrap .right iframe.hide {display:none}
+.tree-wrap .right .mFrame {overflow:hidden; position:relative}
+.tree-wrap .right .mFrame:before {display:block; position:absolute; top:0; left:50%; width:100px; height:10px; border-radius:0 0 15px 15px; background:#000; transform:translateX(-50%); content:""}
+.tree-wrap .right .mFrame iframe{border:3px solid #000; border-radius:30px}
+.tree-wrap .menu-toggle {overflow:hidden; position:fixed; top:91px; top:52px; left:299px; width:16px; height:63px; font-size:0; line-height:0; background:red; background:#999}
+.tree-wrap .menu-toggle.active {left:0}
+.tree-wrap .menu-toggle:before {display:block; margin:0 auto; width:10px; height:10px; background:url("../../static/images/@guide/arrow.png") no-repeat 0 0; background-size:100%; transform:rotate(180deg); content:""}
+.tree-wrap .menu-toggle.active:before {transform:rotate(0deg)}
+.tree-wrap .close .left,
+.tree-wrap .close .state {left:-300px}
+.tree-wrap .close .right {margin-left:0}
+
+/* 진척율 */
+.state {position:fixed; top:52px; left:0; width:300px; border-right:1px solid #999; border-bottom:1px solid #999; box-sizing:border-box; background:#fff}
+.progress {display:flex; overflow:hidden; position:relative; padding:8px 10px 0; line-height:20px; align-items:center}
+.progress .count {color:#000; line-height:20px}
+.progress .bar {position:relative; margin:0 10px; height:14px; border-radius:5px; background:#ddd; flex-grow:1}
+.progress .bar span {display:block; overflow:hidden; position:absolute; position:relative; top:0; left:0; width:0; height:14px; border-radius:8px; background:#333}
+
+/* 구분 */
+.list-color {display:block; overflow:hidden; margin:8px 0; padding:0 10px; height:38px; box-sizing:border-box; text-align:justify}
+.list-color li {display:inline-block; font-size:14px; letter-spacing:-1px; line-height:18px; vertical-align:top; min-width:calc((100% - 20px) / 3)}
+.list-color li:before {display:block; float:left; margin-right:3px; width:18px; height:18px; content:""}
+.list-color li[data-state="대기"]:before {background:#afaf7e}
+.list-color li[data-state="진행중"]:before {background:#999}
+.list-color li[data-state="완료"]:before {background:#000}
+.list-color li[data-state="검수요청"]:before {background:#d33719}
+.list-color li[data-state="미수급"]:before {background:#4fa6e9}
+.list-color li[data-state="수정"]:before {background:#ee9200}
+.list-color li[data-state="삭제"]{color:#ccc; text-decoration:line-through}
+.list-color li[data-state="삭제"]:before {background:#ccc}
+.list-color:before {display:block; width:100%; content:""}
+.list-color:after {display:inline-block; width:100%; content:""}
+
+/* 트리 메뉴 열기/닫기 */
+.tree-ctrl {display:flex; overflow:hidden; border-top:1px solid #999; text-align:justify; background:#fff}
+.tree-ctrl>button {display:block; height:32px; box-sizing:border-box; line-height:30px; text-align:center; flex-grow:1}
+.tree-ctrl>button+button {border-left:1px solid #ddd}
+.tree-ctrl button.active {border-color:#333; color:#fff; font-weight:500; background-color:#333}
+
+/* 트리 */
+.tree {padding:0 10px 50px}
+.tree .dtree {margin:10px 0; color:#888; white-space:nowrap}
+.tree .dtree+.dtree {margin-top:20px}
+.tree .dtree p {text-align:right}
+.tree .dtree a {display:inline-block; color:#888; text-decoration:none; vertical-align:top}
+.tree .dtree a.node,
+.tree .dtree a.nodeSel {padding:0 5px 0 3px; line-height:26px}
+.tree .dtree a.nodeSel {font-size:16px; font-weight:bold; letter-spacing:-1px; background-color:yellow}
+/*.tree .dtree .clip {overflow:hidden}*/
+.tree .dtree>.clip {margin:0 5px}
+.tree .dtree .dTreeNode {height:26px}
+.tree .dtree>.dTreeNode {margin-top:20px}
+.tree .dtree>.dTreeNode:first-child {margin-top:0; padding:5px; font-size:16px; line-height:26px; background:#f1f1f1}
+.tree .dtree>.dTreeNode>a[id*="smenu"] {color:#4773d2; font-size:16px; font-weight:bold}
+.tree .dtree>.dTreeNode>img {vertical-align:middle}
+.tree .dtree a+img+a {color:#000}
+.tree .dtree a.node+.progress-info {display:none}
+.tree .dtree a.nodeSel+.progress-info {display:block; position:fixed; top:8px; left:50%; padding:0 20px; border:2px solid #eee; color:#fff; transform:translateX(-50%)}
+.tree .dtree a.nodeSel+.progress-info span {display:inline-block; font-size:16px; line-height:32px; vertical-align:top}
+.tree .dtree a.nodeSel+.progress-info span+span:before {display:inline-block; margin:0 15px; vertical-align:top; content:"/"}
+.tree .dtree a.node[data-state="수정"],
+.tree .dtree a.node[data-state="검수요청"]{font-weight:bold}
+.tree .dtree a.node[data-state="삭제"]{pointer-events:none; text-decoration:line-through}
+@media only screen and (max-width: 1280px) {
+	.tree .dtree a.nodeSel+.progress-info {right:10px; left:auto; transform:translateX(0)}
+}
+
+/* Guide - contents */
+.cont-guide {padding:10px 30px 50px; font-size:15px; line-height:normal}
+h2.tit-guide {display:block; position:relative; margin:0 0 30px 0; padding:0 0 10px; border-bottom:1px solid #333; font-size:25px}
+h2.tit-guide:first-child {margin-top:0}
+h3.tit-guide {display:block; position:relative; margin:30px 0 10px 0; padding-top:20px; border-top:1px solid #ccc; color:#ea002c; font-size:18px; line-height:30px}
+h3.tit-guide:before {display:inline-block; margin-right:5px; color:#333; font-size:14px; vertical-align:top; content:"▣"}
+h3.tit-guide:first-of-type {margin-top:0; padding-top:0; border-top:0}
+h4.tit-guide {display:block; position:relative; margin:15px 0 0; padding:0 0 5px 12px; font-size:16px}
+h4.tit-guide:before {display:block; position:absolute; top:11px; left:0; width:4px; height:4px; background-color:#000; content:""}
+.desc-guide {position:relative; margin:30px 0 20px 0; padding:25px 20px 20px; border:1px solid #ccc; color:#000; font-size:16px}
+.desc-guide:after {display:inline-block; position:absolute; top:-13px; left:10px; padding:0 3px; color:#3378c1; font-size:14px; letter-spacing:1px; text-shadow:1px 1px 0 #fff; background:#fff; content:"Guide-Description"}
+.tit-guide+.desc-guide {margin-top:10px}
+
+/* 소스코드 */
+.source-code {margin-top:20px; margin-bottom:30px; padding:15px; border:1px dashed #999; background:#fff}
+.source-code * {font-family:"Arial", "Malgun Gothic", "맑은 고딕", Dotum, "돋움", sans-serif; font-weight:normal; letter-spacing:0.5px}
+.source-code [class*="btn"] {margin-right:5px; padding:0 15px 0 12px; height:38px; border-radius:5px; color:#fff; font-size:16px; font-weight:bold; line-height:38px; background:#0369d1}
+.source-code [class*="btn"]:before {display:inline-block; margin:7px 5px 0 0; width:30px; height:24px; vertical-align:top; background:url("../../static/images/@guide/ico_code.png") no-repeat 50% 50%; background-size:30px 24px; content:""}
+.source-code .btn-copy {display:none; background:#666}
+.source-code .btn-copy:before {width:24px; background-image:url("../../static/images/@guide/ico_copy.png"); background-size:22px}
+.source-code ol.linenums {margin:0; padding:18px 0 0; color:#aeaeae}
+.source-code ol.linenums li {margin:0; padding:0; list-style-type:none ; font-size:14px; line-height:1.25}
+.source-code ol.linenums li:nth-child(odd) {background:#393939}
+.source-code ol.linenums li:hover {background:#424242}
+.source-code ol.linenums li * {font-size:14px; line-height:1.25}
+.source-code li.L0:first-child {display:none}
+.source-code xmp.prettyprint {display:none; overflow:hidden; background-color:#333}
+.source-code xmp .nopre {color:#000 ; background-color:none}
+.source-code xmp .str {color:#ffa0a0}
+.source-code xmp .kwd {color:#f0e68c}
+.source-code xmp .com {color:#87ceeb}
+.source-code xmp .typ {color:#98fb98}
+.source-code xmp .lit {color:#cd5c5c}
+.source-code xmp .pun {color:#fff}
+.source-code xmp .pln {color:#fff}
+.source-code xmp .tag {color:#f0e68c}
+.source-code xmp .atn {color:#bdb76b}
+.source-code xmp .atv {color:#ffa0a0}
+.source-code xmp .dec {color:#98fb98}
+.source-code.open {background:#f1f1f1}
+.source-code.open xmp.prettyprint {display:block}
+.source-code.open .btn-code {margin-bottom:15px; background:#0350d1}
+.source-code.open .btn-copy {display:inline-block}
+.source-view {border:16px solid #f8f8f9; background:#fff}
